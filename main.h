@@ -8,7 +8,7 @@
 /**
  * struct spe - List all conversion specifiers.
  *
- * @specifers: Conversion specifiers
+ * @conversion: Character associated with a function
  * @f: Function to call, for print the variable
  *
  */
