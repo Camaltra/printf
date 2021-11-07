@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 	};
 	va_list arg;
 
-	va_start(print, format);
+	va_start(arg, format);
 
 	for (i = 0; *(format + i); i++)
 	{
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 				{
 					if (*p[j].conversion == *(format + i + 1))
 						{
-							sum += *p[j].f(print);
+							sum += *p[j].f(arg);
 							break;
 						}
 				}
