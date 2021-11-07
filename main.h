@@ -1,5 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdlib.h>
+#include <stdarg.h>
 
 /* ----- Structure ----- */
 
@@ -19,5 +21,9 @@ typedef struct spe
 /* ----- Prototype of all functions ----- */
 
 int _putchar(char c);
+
+int print_char(va_list arg);
+
+int is_string(va_list arg);
 
 #endif
