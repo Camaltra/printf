@@ -12,6 +12,49 @@
  */
 int _printf(const char *format, ...)
 {
+	/* initialisation of index */
+	int i, j, sum = 0;
+	
+	specifers p[] = {
+		{'c', print_char},
+		{'s', print_str},
+		{'i', print_int},
+		{'d', print_double},
+		/*
+		{'b', print_binary},
+		{'u',},
+		{'o', print_octal},
+		{'x',},
+		{'X',},
+		{'S',},
+		{'p', print_pointer},
+		*/
+		{NULL, NULL};
+	};
+	va_list arg;
 
+	va_start(print, format);
+
+	for (i = 0; *(format + i); i++)
+	{
+		if (*(format + i) != '%')
+		{
+			_putchar(*(format + i));
+			sum++;
+		}
+		else if (*(format + i) == '%')
+			{
+				for (j = 0; *p[j].conversion; j++)
+				{
+					if (*p[j].conversion == *(format + i + 1))
+						{
+							sum += *p[j].f(print);
+							break;
+						}
+				}
+			}
+	}
+	va_end(print);
+	_putchar('\n');
 	return (0);
 }
