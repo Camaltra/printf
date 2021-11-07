@@ -10,7 +10,7 @@
 int print_char(va_list arg)
 {
 	char is_char;
-	is_char = va_arg(arg, char);
+	is_char = va_arg(arg, int);
 	if (arg < 0 || arg > 127)
 	{
 		_printf("It is not a char");
@@ -27,7 +27,7 @@ int print_char(va_list arg)
  *
  * Return: Length of the string
  */
-int is_string(va_list arg)
+int print_str(va_list arg)
 {
 	char *str;
 	int i;

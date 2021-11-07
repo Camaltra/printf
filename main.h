@@ -24,6 +24,6 @@ int _putchar(char c);
 
 int print_char(va_list arg);
 
-int is_string(va_list arg);
+int print_str(va_list arg);
 
 #endif
