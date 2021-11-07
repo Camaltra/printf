@@ -42,5 +42,5 @@ int print_str(va_list arg)
 	{
 		_putchar(str[i]);
 	}
-	return (_strlen(str));
+	return (i);
 }
