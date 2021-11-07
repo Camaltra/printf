@@ -14,8 +14,8 @@
  */
 typedef struct spe
 {
-    char conversion;
-    int (*f)(va_list);
+	char conversion;
+	int (*f)(va_list);
 } specifers;
 
 /* ----- Prototype of all functions ----- */
