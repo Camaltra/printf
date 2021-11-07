@@ -12,11 +12,11 @@
  */
 typedef struct spe
 {
-    char specifers;
+    char conversion;
     int (*f)(va_list);
 } specifers;
 
-/* ----- Prototype of all function ----- */
+/* ----- Prototype of all functions ----- */
 
 int _putchar(char c);
 
