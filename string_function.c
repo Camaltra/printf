@@ -30,6 +30,7 @@ int print_char(va_list arg)
 int is_string(va_list arg)
 {
 	char *str;
+	int i;
 
 	str = va_arg(arg, char *);
 	if (str == NULL)
@@ -37,6 +38,9 @@ int is_string(va_list arg)
 		_printf("It is not a str");
 		exit(2);
 	}
-	_printf("%s", str);
+	for (i = 0; str[i]; i++)
+	{
+		_putchar(str[i]);
+	}
 	return (_strlen(str));
 }
