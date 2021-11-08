@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 {
 	/* initialisation of index */
 	int i, j, sum = 0;
-	
+
 	specifers p[] = {
 		{'c', print_char},
 		{'s', print_str},
