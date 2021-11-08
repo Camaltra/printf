@@ -24,9 +24,17 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
+			if (*(format + i + 1) == *(format + i))
+			{
+				_putchar(*(format + i));
+				i++;
+				sum++;
+			} else
+			{
 			i++;
 			print_func = get_print_func((format + i));
 			sum += print_func(arg);
+			}
 		} else
 		{
 			_putchar(*(format + i));
@@ -34,7 +42,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(arg);
-	return (0);
+	return (sum);
 }
 
 /**
@@ -58,11 +66,6 @@ int (*get_print_func(const char *format))(va_list)
 		{"b", print_binary},
 		{"u", print_u_number},
 		{"o", print_octal},
-		/*{"x",},
-		{"X",},
-		{"S",},
-		{"p", print_pointer},
-		*/
 		{NULL, NULL}
 	};
 

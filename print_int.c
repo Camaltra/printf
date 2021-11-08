@@ -9,25 +9,23 @@
  */
 int print_int(va_list arg)
 {
-	int i = 0;
-	int num = va_arg(arg, int);
+	int size = 1, number, i;
+	int n = va_arg(arg, int);
 
-	if (num == 0)
-	{
-		_putchar('0');
-		i++;
-	}
-	if (num < 0)
-	{
+	while (n / size > 9 || n / size < -9)
+		size *= 10;
+
+	if (n < 0)
 		_putchar('-');
-		i++;
-		num *= -1;
-	}
-	while (num > 0)
+
+	for (i = size; i >= 1; i /= 10)
 	{
-		_putchar(num % 10 + '0');
-		num /= 10;
-		i++;
+		if (n >= 0)
+			number = (n / i) % 10;
+		else
+			number = ((n / i) % 10) * -1;
+
+		_putchar(number + '0');
 	}
-	return (i);
+	return (size - 1);
 }
