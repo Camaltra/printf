@@ -8,14 +8,14 @@
 /**
  * struct spe - List all conversion specifiers.
  *
- * @specifers: Conversion specifiers
+ * @conversion: Character associated with a function
  * @f: Function to call, for print the variable
  *
  */
 typedef struct spe
 {
-    char conversion;
-    int (*f)(va_list);
+	char conversion;
+	int (*f)(va_list);
 } specifers;
 
 /* ----- Prototype of all functions ----- */

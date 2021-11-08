@@ -1,1 +1,29 @@
-How printf work !
+_PRINTF(3)
+
+NAME
+
+    _printf - formatted output conversion
+
+SYNOPSIS
+    #include "main.h"
+
+    int _printf(const char *format, ...);
+
+DESCRIPTION
+	The function _printf() is used to have a output of a format to stdout.
+
+	Conversion specifiers
+
+		c	Convert a int argument into an unsigned char, and the resulting character is written.
+
+		s 	The pointer char * is browse in a loop into the end '\0' and it's print with the putchar function.
+
+EXAMPLES
+	_printf("Holberton is best school");
+	
+	_printf("Hypopierre is %c", c_var);
+
+	_printf("%s", str);
+
+AUTHOR
+	Franck LEGER & Mickael BOILLAUD

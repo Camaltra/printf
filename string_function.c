@@ -10,6 +10,7 @@
 int print_char(va_list arg)
 {
 	char is_char;
+
 	is_char = va_arg(arg, int);
 	if (arg < 0 || arg > 127)
 	{
@@ -21,7 +22,7 @@ int print_char(va_list arg)
 }
 
 /**
- * is_string - Test if it's a string, print it
+ * print_str - Test if it's a string, print it
  *
  * @arg: Given string
  *
