@@ -55,11 +55,10 @@ int (*get_print_func(const char *format))(va_list)
 		{"s", print_str},
 		{"d", print_int},
 		{"i", print_int},
-		/*
 		{"b", print_binary},
-		{"u",},
+		{"u", print_u_number},
 		{"o", print_octal},
-		{"x",},
+		/*{"x",},
 		{"X",},
 		{"S",},
 		{"p", print_pointer},
