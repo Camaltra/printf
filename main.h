@@ -36,4 +36,6 @@ int print_binary(va_list arg);
 int print_u_number(va_list arg);
 int print_octal(va_list arg);
 
+int print_int(va_list arg);
+
 #endif

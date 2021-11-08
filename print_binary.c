@@ -14,7 +14,6 @@ int print_binary(va_list arg)
 	int loop = 0, result = 0;
 	unsigned int toconvert = va_arg(arg, unsigned int);
 
-	print_number(toconvert);
 	while (toconvert != 0)
 	{
 		if (toconvert % 2 != 0)
@@ -25,7 +24,11 @@ int print_binary(va_list arg)
 		loop++;
 	}
 
-	print_number(result);
+	while (result > 0)
+	{
+		_putchar(result % 10 + '0');
+		result /= 10;
+	}
 
 	return (loop);
 }
