@@ -38,4 +38,6 @@ int print_octal(va_list arg);
 
 int print_int(va_list arg);
 
+int print_pourcent(va_list arg);
+
 #endif
