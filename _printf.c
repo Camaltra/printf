@@ -16,20 +16,20 @@ int _printf(const char *format, ...)
 	int i, j, sum = 0;
 
 	specifers p[] = {
-		{'c', print_char},
-		{'s', print_str},
-		{'i', print_int},
-		{'d', print_double},
-		/*
-		{'b', print_binary},
-		{'u',},
-		{'o', print_octal},
-		{'x',},
-		{'X',},
-		{'S',},
-		{'p', print_pointer},
+		{"c", print_char},
+		{"s", print_str},
+		/*{"i", print_int},
+		{"d", print_double},
+
+		{"b", print_binary},
+		{"u",},
+		{"o", print_octal},
+		{"x",},
+		{"X",},
+		{"S",},
+		{"p", print_pointer},
 		*/
-		{NULL, NULL};
+		{NULL, NULL}
 	};
 	va_list arg;
 
@@ -37,26 +37,23 @@ int _printf(const char *format, ...)
 
 	for (i = 0; *(format + i); i++)
 	{
-		while (*(format + i) != '%' && *(format + i))
-		{
-			_putchar(*(format + i));
-			i++;
-			sum++;
-		}
 		if (*(format + i) == '%')
 		{
 			i++;
 			for (j = 0; *p[j].conversion; j++)
 			{
-				if (*p[j].conversion == *(format + i + 1))
+				if (*p[j].conversion == *(format + i) && *p[j].conversion != '\0')
 				{
-					sum += *p[j].f(arg);
+					sum += p[j].f(arg);
 					break;
 				}
 			}
+		} else
+		{
+			_putchar(*(format + i));
+			sum++;
 		}
 	}
-	va_end(print);
-	_putchar('\n');
+	va_end(arg);
 	return (0);
 }

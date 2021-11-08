@@ -12,12 +12,12 @@ int print_char(va_list arg)
 	char is_char;
 
 	is_char = va_arg(arg, int);
-	if (arg < 0 || arg > 127)
+	if (is_char < 0 && is_char > 126)
 	{
-		_printf("It is not a char");
+		_printf("It is not a char\n");
 		exit(1);
 	}
-	_putchar(arg);
+	_putchar(is_char);
 	return (1);
 }
 
@@ -36,7 +36,7 @@ int print_str(va_list arg)
 	str = va_arg(arg, char *);
 	if (str == NULL)
 	{
-		_printf("It is not a str");
+		_printf("It is not a str\n");
 		exit(2);
 	}
 	for (i = 0; str[i]; i++)

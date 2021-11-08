@@ -14,7 +14,7 @@
  */
 typedef struct spe
 {
-	char conversion;
+	char *conversion;
 	int (*f)(va_list);
 } specifers;
 
@@ -25,5 +25,7 @@ int _putchar(char c);
 int print_char(va_list arg);
 
 int print_str(va_list arg);
+
+int _printf(const char *format, ...);
 
 #endif
