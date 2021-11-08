@@ -53,9 +53,9 @@ int (*get_print_func(const char *format))(va_list)
 	specifers p[] = {
 		{"c", print_char},
 		{"s", print_str},
-		/*{"i", print_int},
-		{"d", print_double},
-
+		{"d", print_int},
+		{"i", print_int},
+		/*
 		{"b", print_binary},
 		{"u",},
 		{"o", print_octal},
