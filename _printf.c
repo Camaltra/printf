@@ -37,11 +37,11 @@ int _printf(const char *format, ...)
 
 	for (i = 0; *(format + i); i++)
 	{
-		while (*(format + i) != '%')
+		while (*(format + i) != '%' && *(format + i))
 		{
 			_putchar(*(format + i));
-			sum++;
 			i++;
+			sum++;
 		}
 		if (*(format + i) == '%')
 		{
