@@ -37,22 +37,24 @@ int _printf(const char *format, ...)
 
 	for (i = 0; *(format + i); i++)
 	{
-		if (*(format + i) != '%')
+		while (*(format + i) != '%')
 		{
 			_putchar(*(format + i));
 			sum++;
+			i++;
 		}
-		else if (*(format + i) == '%')
+		if (*(format + i) == '%')
+		{
+			i++;
+			for (j = 0; *p[j].conversion; j++)
 			{
-				for (j = 0; *p[j].conversion; j++)
+				if (*p[j].conversion == *(format + i + 1))
 				{
-					if (*p[j].conversion == *(format + i + 1))
-						{
-							sum += *p[j].f(arg);
-							break;
-						}
+					sum += *p[j].f(arg);
+					break;
 				}
 			}
+		}
 	}
 	va_end(print);
 	_putchar('\n');
