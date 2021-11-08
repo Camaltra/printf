@@ -9,16 +9,24 @@
  */
 int print_int(va_list arg)
 {
-	int number = va_arg(arg, int);
 	int i = 0;
+	int num = va_arg(arg, int);
 
-	if (number < 0)
+	if (num == 0)
+	{
+		_putchar('0');
+		i++;
+	}
+	if (num < 0)
+	{
 		_putchar('-');
 		i++;
-	while (number != 0)
+		num *= -1;
+	}
+	while (num > 0)
 	{
-		_putchar(number % 10);
-		number /= 10;
+		_putchar(num % 10 + '0');
+		num /= 10;
 		i++;
 	}
 	return (i);
