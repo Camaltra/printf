@@ -11,26 +11,28 @@
  */
 int print_binary(va_list arg)
 {
-	int loop = 0, result = 0;
+	int length = 0, result = 0, pow = -1;
 	unsigned int toconvert = va_arg(arg, unsigned int);
 
 	while (toconvert != 0)
 	{
 		if (toconvert % 2 != 0)
 		{
-			result += 1 * _pow_recursion(10, loop);
+			result += 1 * _pow_recursion(10, length);
+
 		}
 		toconvert /= 2;
-		loop++;
+		length++;
+		pow++;
 	}
 
-	while (result > 0)
+	while (pow >= 0)
 	{
-		_putchar(result % 10 + '0');
-		result /= 10;
+		_putchar((result / _pow_recursion(10, pow)) % 10 + '0');
+		pow--;
 	}
 
-	return (loop);
+	return (length);
 }
 
 /**
