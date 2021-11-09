@@ -42,4 +42,6 @@ int print_int(va_list arg);
 
 int print_pourcent(va_list arg);
 
+int print_percent(va_list arg __attribute__((unused)));
+
 #endif

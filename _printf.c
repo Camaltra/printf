@@ -24,19 +24,16 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
-			if (*(format + i + 1) == *(format + i))
+			print_func = get_print_func((format + i + 1));
+			if (print_func != NULL)
+			{
+				sum += print_func(arg);
+				i++;
+			}
+			else
 			{
 				_putchar(*(format + i));
-				i++;
 				sum++;
-			} else
-			{
-				i++;
-				print_func = get_print_func((format + i));
-				if (print_func != NULL)
-					sum += print_func(arg);
-				else
-					return (0);
 			}
 		} else
 		{
@@ -71,6 +68,7 @@ int (*get_print_func(const char *format))(va_list)
 		{"o", print_octal},
 		{"x", print_hexax},
 		{"X", print_hexaX},
+		{"%", print_percent},
 		{NULL, NULL}
 	};
 
