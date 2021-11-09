@@ -11,8 +11,8 @@
  */
 int print_binary(va_list arg)
 {
-	int length = 0, pow = 0;
-	unsigned int toconvert = va_arg(arg, unsigned int);
+	int length = 0, pow = 0, loop = 0;
+	unsigned int toconvert = va_arg(arg, unsigned int), searchLength = toconvert;
 	char result[31] = { '\0' };
 
 	if (toconvert == 0)
@@ -20,24 +20,22 @@ int print_binary(va_list arg)
 		_putchar('0');
 		return (1);
 	}
-	while (toconvert != 0)
+	while (searchLength >= 2)
 	{
-		if (toconvert % 2 != 0)
-		{
-			result[length] = '1';
-
-		} else
-			result[length] = '0';
-		toconvert /= 2;
+		searchLength /= 2;
 		length++;
 		pow++;
 	}
 
 	while (pow >= 0)
 	{
-		_putchar(result[pow]);
+		result[pow] = (toconvert % 2);
 		pow--;
+		toconvert /= 2;
 	}
+
+	for (loop = 0; loop <= length; loop++)
+		_putchar(result[loop] + '0');
 
 	return (length);
 }
