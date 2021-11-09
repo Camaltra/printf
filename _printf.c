@@ -24,7 +24,8 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
-			print_func = get_print_func((format + i + 1));
+			if (*(format + i + 1))
+				print_func = get_print_func((format + i + 1));
 			if (print_func != NULL)
 			{
 				sum += print_func(arg);
