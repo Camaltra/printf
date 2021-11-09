@@ -35,6 +35,13 @@ int print_str(va_list arg)
 	return (i);
 }
 
+/**
+ * print_percent - Print the percent
+ *
+ * @arg: arg to print
+ *
+ * Return: 1 : Length of the %
+ */
 int print_percent(va_list arg __attribute__((unused)))
 {
 	return (_putchar('%'));
