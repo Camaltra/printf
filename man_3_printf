@@ -1,5 +1,5 @@
 ./" This is the manpage of the _printf function in the project of Holberton School
-.TH _PRINTF(3)
+.TH _PRINTF 3 2021-11-11 GNU
 
 .SH NAME
 
@@ -50,4 +50,7 @@ The function _printf() is used to have a output of a format to stdout.
 	_printf("Pourcent of Holbies working in VR: %d%%\n", integer);
 
 .SH AUTHOR
-	Franck LEGER & Mickael BOILLAUD
+.TP
+.PP
+	Franck LEGER, Github: @Falendrac, Email: leger_franck@hotmail.fr
+	Mickael BOILLAUD, Github: @Camaltra, Email: 
