@@ -13,32 +13,29 @@
 int _printf(const char *format, ...)
 {
 	/* initialisation of index */
-	int i, sum = 0;
+	int i;
+	unsigned int buffer_len, holder_len;
 	int (*print_func)(va_list);
-
+	char buffer[BUFFER_SIZE], *holder;
+	for (i = 0; i < BUFFER_SIZE; i++)
+		*(buffer + i) = 0
 	va_list arg;
-
 	va_start(arg, format);
 
-	for (i = 0; *(format + i); i++)
+	for (i = buffer_len = holder_len = 0; format && *(format + i); i++)
 	{
 		if (*(format + i) == '%')
 		{
-			if (*(format + i + 1) == *(format + i))
-			{
-				_putchar(*(format + i));
-				i++;
-				sum++;
-			} else
-			{
+			print_func = get_print_func(format + i);
+			holder = print_func(arg);
 			i++;
-			print_func = get_print_func((format + i));
-			sum += print_func(arg);
-			}
-		} else
+			holder_len = _strlen(holder)
+			buffer_len = check_buffer(holder, buffer_len, holder_len, buffer);
+		}
+		else
 		{
-			_putchar(*(format + i));
-			sum++;
+			holder = *(format + i)
+			check_buffer(holder, buffer_len, 1, buffer);
 		}
 	}
 	va_end(arg);
@@ -66,6 +63,8 @@ int (*get_print_func(const char *format))(va_list)
 		{"b", print_binary},
 		{"u", print_u_number},
 		{"o", print_octal},
+		{"x", print_hexax},
+		{"X", print_hexaX},
 		{NULL, NULL}
 	};
 
