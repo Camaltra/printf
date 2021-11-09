@@ -7,25 +7,26 @@
  *
  * Return: Lenght of int
  */
-int print_int(va_list arg)
+/*int print_number(va_list arg)
 {
-	int size = 1, number, i;
+	unsigned int number;
 	int n = va_arg(arg, int);
+	int i;
 
-	while (n / size > 9 || n / size < -9)
-		size *= 10;
-
-	if (n < 0)
-		_putchar('-');
-
-	for (i = size; i >= 1; i /= 10)
+	if (n >= 0)
 	{
-		if (n >= 0)
-			number = (n / i) % 10;
-		else
-			number = ((n / i) % 10) * -1;
-
-		_putchar(number + '0');
+		number = n;
 	}
-	return (size - 1);
+	else
+	{
+		_putchar(45);
+		number = -n;
+	}
+	if (number / 10)
+	{
+		print_number(number / 10);
+	}
+	_putchar(number % 10 + '0');
 }
+
+*/
