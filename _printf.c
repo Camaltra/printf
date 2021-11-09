@@ -66,6 +66,8 @@ int (*get_print_func(const char *format))(va_list)
 		{"b", print_binary},
 		{"u", print_u_number},
 		{"o", print_octal},
+		{"x", print_hexax},
+		{"X", print_hexaX},
 		{NULL, NULL}
 	};
 

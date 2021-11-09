@@ -66,3 +66,66 @@ int print_octal(va_list arg)
 
 	return (length);
 }
+
+/**
+ * print_hexax - Convert decimal into lower hexadecimal
+ *
+ * @arg: The variadic variable with the int we
+ * want to convert
+ *
+ * Return: length of the print
+ */
+int print_hexax(va_list arg)
+{
+	int i = 0, j, count = 0;
+	unsigned int quotient;
+	char hexa[100]; /* A modifier, on peut faire mieux */
+	char hexa_list[17] = "0123456789abcdef";
+
+	quotient = va_arg(arg, unsigned int);
+	while (quotient > 0)
+	{
+		hexa[i] = hexa_list[quotient % 16];
+		quotient /= 16;
+		i++;
+		count++;
+	}
+	hexa[i] = '\0';
+	if (i == 1)
+		_putchar('0'), count++;
+	for (j = i; j >= 0; j--)
+		_putchar(hexa[j]);
+	return (count);
+}
+
+
+/**
+ * print_hexaX - Convert decimal into upper hexadecimal
+ *
+ * @arg: The variadic variable with the int we
+ * want to convert
+ *
+ * Return: length of the print
+ */
+int print_hexaX(va_list arg)
+{
+	int i = 0, j, count = 0;
+	unsigned int quotient;
+	char hexa[100]; /* A modifier, on peut faire mieux */
+	char hexa_list[17] = "0123456789ABCDEF";
+
+	quotient = va_arg(arg, unsigned int);
+	while (quotient != 0)
+	{
+		hexa[i] = hexa_list[quotient % 16];
+		quotient /= 16;
+		i++;
+		count++;
+	}
+	hexa[i] = '\0';
+	if (i == 1)
+		_putchar('0'), count++;
+	for (j = i; j >= 0; j--)
+		_putchar(hexa[j]);
+	return (count);
+}
