@@ -15,8 +15,10 @@ int _printf(const char *format, ...)
 	/* initialisation of index */
 	int i, sum = 0;
 	int (*print_func)(va_list);
-
 	va_list arg;
+
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 
 	va_start(arg, format);
 
@@ -24,7 +26,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
-			if (*(format + i + 1))
+			if (*(format + i + 1) != '\0')
 				print_func = get_print_func((format + i + 1));
 			if (print_func != NULL)
 			{
