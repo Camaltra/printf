@@ -9,7 +9,7 @@
  */
 int print_int(va_list arg)
 {
-	int size = 1, number, i;
+	int size = 1, number, i, length;
 	int n = va_arg(arg, int);
 
 	while (n / size > 9 || n / size < -9)
@@ -18,7 +18,7 @@ int print_int(va_list arg)
 	if (n < 0)
 		_putchar('-');
 
-	for (i = size; i >= 1; i /= 10)
+	for (i = size, length = 0; i >= 1; i /= 10, length++)
 	{
 		if (n >= 0)
 			number = (n / i) % 10;
@@ -27,5 +27,5 @@ int print_int(va_list arg)
 
 		_putchar(number + '0');
 	}
-	return (1);
+	return (length);
 }
