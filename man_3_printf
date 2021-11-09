@@ -1,29 +1,53 @@
-_PRINTF(3)
+./" This is the manpage of the _printf function in the project of Holberton School
+.TH _PRINTF(3)
 
-NAME
+.SH NAME
 
     _printf - formatted output conversion
 
-SYNOPSIS
+.SH SYNOPSIS
     #include "main.h"
 
     int _printf(const char *format, ...);
 
-DESCRIPTION
-	The function _printf() is used to have a output of a format to stdout.
+.SH DESCRIPTION
+The function _printf() is used to have a output of a format to stdout.
 
-	Conversion specifiers
-
+.SS		Conversion specifiers
+.TP
 		c	Convert a int argument into an unsigned char, and the resulting character is written.
+.TP
+		s 	The pointer char * is browse in a loop into the end by NULL character and it's print with the putchar function.
+.TP
+		%	No argument is printed, just "%"
+.TP
+		d, i	The argument int is print to decimal notation.
 
-		s 	The pointer char * is browse in a loop into the end '\0' and it's print with the putchar function.
-
-EXAMPLES
+.SH EXAMPLES
+.TP
+	To print a string:
+.TP
+.PP
+	#include "main.h"
 	_printf("Holberton is best school");
-	
+.TP
+	To print a string and a character in a viariable:
+.TP
+.PP
+	#include "main.h"
 	_printf("Hypopierre is %c", c_var);
-
+.TP
+	To print a string in a variable:
+.TP
+.PP
+	#include "main.h"
 	_printf("%s", str);
+.TP
+	To print a decimal int with a pourcent:
+.TP
+.PP
+	#include "main.h"
+	_printf("Pourcent of Holbies working in VR: %d%%\n", integer);
 
-AUTHOR
+.SH AUTHOR
 	Franck LEGER & Mickael BOILLAUD
