@@ -11,16 +11,23 @@
  */
 int print_binary(va_list arg)
 {
-	int length = 0, result = 0, pow = -1;
+	int length = 0, pow = 0;
 	unsigned int toconvert = va_arg(arg, unsigned int);
+	char result[31] = { '\0' };
 
+	if (toconvert == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	while (toconvert != 0)
 	{
 		if (toconvert % 2 != 0)
 		{
-			result += 1 * _pow_recursion(10, length);
+			result[length] = '1';
 
-		}
+		} else
+			result[length] = '0';
 		toconvert /= 2;
 		length++;
 		pow++;
@@ -28,7 +35,7 @@ int print_binary(va_list arg)
 
 	while (pow >= 0)
 	{
-		_putchar((result / _pow_recursion(10, pow)) % 10 + '0');
+		_putchar(result[pow]);
 		pow--;
 	}
 
