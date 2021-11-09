@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdlib.h>
 #include <stdarg.h>
-#define BUFFER 1024
+#define BUFFER_SIZE 1024
 /* ----- Structure ----- */
 
 /**
