@@ -31,9 +31,12 @@ int _printf(const char *format, ...)
 				sum++;
 			} else
 			{
-			i++;
-			print_func = get_print_func((format + i));
-			sum += print_func(arg);
+				i++;
+				print_func = get_print_func((format + i));
+				if (print_func != NULL)
+					sum += print_func(arg);
+				else
+					return (0);
 			}
 		} else
 		{
@@ -71,8 +74,8 @@ int (*get_print_func(const char *format))(va_list)
 		{NULL, NULL}
 	};
 
-	for (j = 0; *p[j].conversion; j++)
-		if (*p[j].conversion == *format && *p[j].conversion != '\0')
+	for (j = 0; p[j].conversion != NULL; j++)
+		if (p[j].conversion != NULL && *p[j].conversion == *format)
 			return (p[j].f);
 
 	return (0);
