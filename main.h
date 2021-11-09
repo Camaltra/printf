@@ -32,6 +32,7 @@ int (*get_print_func(const char *format))(va_list);
 int _pow_recursion(int x, int y);
 
 int print_binary(va_list arg);
+char *convert_binary(unsigned int number);
 
 int print_u_number(va_list arg);
 int print_octal(va_list arg);

@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-
-char *convert_binary(unsigned int number);
 
 /**
  * print_binary - Convert an int to binary
@@ -18,13 +15,13 @@ int print_binary(va_list arg)
 	unsigned int toconvert = va_arg(arg, unsigned int);
 	char *result;
 
-	if (toconvert == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
+	if (!toconvert)
+		return (_putchar('0'));
 
 	result = convert_binary(toconvert);
+
+	if (result == NULL)
+		return (0);
 
 	while (result[loop] != '\0')
 	{
@@ -34,7 +31,7 @@ int print_binary(va_list arg)
 
 	free(result);
 
-	return (loop - 1);
+	return (loop);
 }
 
 /**
@@ -64,37 +61,27 @@ int _pow_recursion(int x, int y)
  */
 char *convert_binary(unsigned int number)
 {
-	char *str, tmp;
-	int length = 0, loop;
+	char *str;
+	int length = 0;
 	unsigned int searchLength = number;
 
-	while (searchLength > 0)
+	while (searchLength >= 2)
 	{
 		searchLength /= 2;
 		length++;
 	}
 
-	str = malloc(sizeof(char) * (length + 1));
+	str = malloc(sizeof(char) * (length + 2));
 
 	if (str == NULL)
 		return (0);
 
-	for (loop = 0; loop < length; loop++)
+	*(str + length + 1) = '\0';
+
+	while (length >= 0)
 	{
-		*(str + loop) = number % 2 + '0';
+		str[length] = number % 2 + '0';
 		number /= 2;
-	}
-	*(str + loop) = '\0';
-
-	loop = 0;
-	length--;
-
-	while (loop < length)
-	{
-		tmp = str[loop];
-		str[loop] = str[length];
-		str[length] = tmp;
-		loop++;
 		length--;
 	}
 
