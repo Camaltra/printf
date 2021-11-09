@@ -13,9 +13,9 @@
 int _printf(const char *format, ...)
 {
 	/* initialisation of index */
-	int i;
+	int i, sum = 0;
 	unsigned int buffer_len, holder_len;
-	int (*print_func)(va_list);
+	char *(*print_func)(va_list);
 	char buffer[BUFFER_SIZE], *holder;
 	va_list arg;
 
@@ -29,12 +29,12 @@ int _printf(const char *format, ...)
 			print_func = get_print_func(format + i);
 			holder = print_func(arg);
 			i++;
-			holder_len = _strlen(holder)
+			holder_len = _strlen(holder);
 			buffer_len = check_buffer(holder, buffer_len, holder_len, buffer);
 		}
 		else
 		{
-			holder = *(format + i)
+			holder = *(format + i); /* Conflit de data */
 			buffer_len = check_buffer(holder, buffer_len, 1, buffer);
 		}
 	}
@@ -99,7 +99,7 @@ void check_buffer(char *holder, unsigned int buffer_len, unsigned int holder_len
 	}
 	else
 	{
-		_memcpy_end(buffer, holder, holder_len, buffer_len)
+		_memcpy_end(buffer, holder, holder_len, buffer_len);
 		buffer_len += holder_len;
 	}
 	return (buffer_len);
@@ -135,7 +135,7 @@ void _memcpy_end(char *dest, char *src, unsigned int n, unsigned int start)
 	int i;
 
 	for(i = 0; i < n; i++)
-		dest[start + i] = src[i]; 
+		dest[start + i] = src[i];
 }
 
 void _print(char *buffer, unsigned int size)
