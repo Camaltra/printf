@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdio.h>
+
+char *convert_binary(unsigned int number);
 
 /**
  * print_binary - Convert an int to binary
@@ -11,33 +14,27 @@
  */
 int print_binary(va_list arg)
 {
-	int length = 0, pow = 0, loop = 0;
-	unsigned int toconvert = va_arg(arg, unsigned int), searchLength = toconvert;
-	char result[31] = { '\0' };
+	int loop = 0;
+	unsigned int toconvert = va_arg(arg, unsigned int);
+	char *result;
 
 	if (toconvert == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	while (searchLength >= 2)
+
+	result = convert_binary(toconvert);
+
+	while (result[loop] != '\0')
 	{
-		searchLength /= 2;
-		length++;
-		pow++;
+		_putchar(result[loop]);
+		loop++;
 	}
 
-	while (pow >= 0)
-	{
-		result[pow] = (toconvert % 2);
-		pow--;
-		toconvert /= 2;
-	}
+	free(result);
 
-	for (loop = 0; loop <= length; loop++)
-		_putchar(result[loop] + '0');
-
-	return (length);
+	return (loop - 1);
 }
 
 /**
@@ -55,4 +52,51 @@ int _pow_recursion(int x, int y)
 		return (x * _pow_recursion(x, y - 1));
 	else
 		return (1);
+}
+
+/**
+ * convert_binary - Allocate memory in a string
+ * and do the convert of decimal to binary in the function
+ *
+ * @number: The unsigned int we want to convert
+ *
+ * Return: str;
+ */
+char *convert_binary(unsigned int number)
+{
+	char *str, tmp;
+	int length = 0, loop;
+	unsigned int searchLength = number;
+
+	while (searchLength > 0)
+	{
+		searchLength /= 2;
+		length++;
+	}
+
+	str = malloc(sizeof(char) * (length + 1));
+
+	if (str == NULL)
+		return (0);
+
+	for (loop = 0; loop < length; loop++)
+	{
+		*(str + loop) = number % 2 + '0';
+		number /= 2;
+	}
+	*(str + loop) = '\0';
+
+	loop = 0;
+	length--;
+
+	while (loop < length)
+	{
+		tmp = str[loop];
+		str[loop] = str[length];
+		str[length] = tmp;
+		loop++;
+		length--;
+	}
+
+	return (str);
 }
