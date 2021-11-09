@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdlib.h>
 #include <stdarg.h>
-
+#define BUFFER 1024
 /* ----- Structure ----- */
 
 /**
@@ -39,5 +39,9 @@ int print_octal(va_list arg);
 int print_int(va_list arg);
 
 int print_pourcent(va_list arg);
+
+int print_hexaX(va_list arg);
+
+int print_hexax(va_list arg);
 
 #endif
