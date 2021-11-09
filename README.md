@@ -32,6 +32,27 @@
         This is the file for the strlen fuction. We use this function to have 
         the length of a string.
 
+* string_function.c
+
+        This is the file for print all the string specifers, as %c and %s.
+        Cointain the functions :
+        print_char
+        print_str
+
+* print_int.c
+
+        This is the file for print all int specifers, as %i and %d
+        Cointain the function :
+        print_int
+
+* print_binary.c
+
+        This is the file for print an unsigned int into a binary, using the 
+        _pow_recursion
+        Contain the functions :
+        print_binary
+        _pow_recursion
+
 * main.h
 
         This is the header file. We define here a structure spe for the specifiers 
