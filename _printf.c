@@ -74,6 +74,7 @@ int (*get_print_func(const char *format))(va_list)
 		{"%", print_percent},
 		{"S", print_S},
 		{"R", rot13_convert},
+		{"p", print_p},
 		{NULL, NULL}
 	};
 
