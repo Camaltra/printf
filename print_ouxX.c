@@ -68,64 +68,69 @@ int print_octal(va_list arg)
 }
 
 /**
- * print_hexax - Convert decimal into lower hexadecimal
- *
- * @arg: The variadic variable with the int we
- * want to convert
- *
- * Return: length of the print
- */
-int print_hexax(va_list arg)
+* choice_hexax - Print the unsigned int into an hexa number
+* in lowercase.
+*
+* @arg: The unsigned int to print
+*
+* Return: The length of the hexa number
+*/
+int choice_hexax(va_list arg)
 {
-	int i = 0, j, count = 0;
-	unsigned int quotient;
-	char hexa[100]; /* A modifier, on peut faire mieux */
-	char hexa_list[17] = "0123456789abcdef";
+	return (print_hexa(va_arg(arg, unsigned int), 0));
+}
 
-	quotient = va_arg(arg, unsigned int);
-	while (quotient > 0)
-	{
-		hexa[i] = hexa_list[quotient % 16];
-		quotient /= 16;
-		i++;
-		count++;
-	}
-	hexa[i] = '\0';
-	if (i == 1)
-		_putchar('0'), count++;
-	for (j = i; j >= 0; j--)
-		_putchar(hexa[j]);
-	return (count);
+/**
+* choice_hexaX - Print the unsigned int into an hexa number
+* in uppercase.
+*
+* @arg: The unsigned int to print
+*
+* Return: The length of the hexa number
+*/
+int choice_hexaX(va_list arg)
+{
+	return (print_hexa(va_arg(arg, unsigned int), 1));
 }
 
 
 /**
- * print_hexaX - Convert decimal into upper hexadecimal
- *
- * @arg: The variadic variable with the int we
- * want to convert
- *
- * Return: length of the print
- */
-int print_hexaX(va_list arg)
+* print_hexa - Print the hexa number
+*
+* @number: The unsigned int to print
+* @upper: Choice is this will be an upper or lower hexa
+*
+* Return: The length of the hexa number
+*/
+int print_hexa(unsigned int number, int upper)
 {
 	int i = 0, j, count = 0;
-	unsigned int quotient;
-	char hexa[100]; /* A modifier, on peut faire mieux */
-	char hexa_list[17] = "0123456789ABCDEF";
+	unsigned int diff;
+	unsigned int tmp;
+	char hexa[9];
 
-	quotient = va_arg(arg, unsigned int);
-	while (quotient != 0)
+	if (upper)
+		diff = 'A' - ':';
+	else
+		diff = 'a' - ':';
+	if (number == 0)
 	{
-		hexa[i] = hexa_list[quotient % 16];
-		quotient /= 16;
+		_putchar('0');
+		return (1);
+	}
+	while (number != 0)
+	{
+		tmp = number % 16;
+		if (tmp >= 10)
+			hexa[i] = tmp + diff + '0';
+		else
+			hexa[i] = tmp + '0';
+		number /= 16;
 		i++;
 		count++;
 	}
-	hexa[i] = '\0';
-	if (i == 1)
-		_putchar('0'), count++;
-	for (j = i; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 		_putchar(hexa[j]);
 	return (count);
+
 }
