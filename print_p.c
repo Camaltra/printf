@@ -13,7 +13,7 @@ int print_p(va_list arg)
 	unsigned long number = va_arg(arg, unsigned long);
 	unsigned long tmp;
 	int k, j, i = 2, count = 2;
-	char addr[16];
+	char addr[14];
 	char *str;
 
 	str = "(nil)";
