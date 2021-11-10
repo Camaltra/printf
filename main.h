@@ -37,8 +37,9 @@ char *convert_binary(unsigned int number);
 
 int print_u_number(va_list arg);
 int print_octal(va_list arg);
-int print_hexax(va_list arg);
-int print_hexaX(va_list arg);
+int print_hexa(unsigned int number, int upper);
+int choice_hexaX(va_list arg);
+int choice_hexax(va_list arg);
 
 int print_int(va_list arg);
 
@@ -46,6 +47,10 @@ int print_pourcent(va_list arg);
 
 int print_percent(va_list arg __attribute__((unused)));
 
+<<<<<<< HEAD
 int rot13_convert(va_list arg);
+=======
+
+>>>>>>> 77a184394a0176f3d4aa0034ed5cad32d2bef81f
 
 #endif
