@@ -32,39 +32,31 @@ int print_u_number(va_list arg)
  * @arg: The variadic variable with the int we
  * want to convert
  *
- * Return: length of the print
+ * Return: i is length of the print
  */
 int print_octal(va_list arg)
 {
-	int length = 0, i;
-	unsigned long result = 0, last_digit, size = 1;
+	int i = 0;
 	unsigned int toconvert = va_arg(arg, unsigned int);
+	char *result;
 
-	while (toconvert != 0)
+	if (toconvert == 0)
+		return (_putchar('0'));
+
+	result = convert_octal(toconvert);
+
+	if (result == NULL)
+		return (0);
+
+	while (result[i] != '\0')
 	{
-		if (toconvert >= 8 && toconvert % 8 != 0)
-			result += (toconvert % 8) * _pow_recursion(10, length);
-		else if (toconvert < 8)
-		{
-			last_digit = toconvert;
-			for (i = length; i > 0; i--)
-			{
-				last_digit *= 10;
-				size *= 10;
-			}
-			result += last_digit;
-		}
-		toconvert /= 8;
-		length++;
+		_putchar(result[i]);
+		i++;
 	}
 
-	for (i = length; i > 0; i--)
-	{
-		_putchar((result / size) % 10 + '0');
-		size /= 10;
-	}
+	free(result);
 
-	return (length);
+	return (i);
 }
 
 /**
