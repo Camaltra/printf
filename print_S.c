@@ -12,7 +12,7 @@
 int print_S(va_list arg)
 {
 	char *str;
-	int i, count = 0;
+	int i, count = -1;
 
 	str = va_arg(arg, char *);
 	if (str == NULL)
@@ -26,9 +26,12 @@ int print_S(va_list arg)
 			count += print_2hexaX(*(str + i));
 		}
 		else
+		{
 			_putchar(*(str + i));
+			count++;
+		}
 	}
-	return (i);
+	return (count);
 }
 
 /**
