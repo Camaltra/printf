@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
+* print_S - Print a \x and the hexa conversion of
+* any char outside of the range (32 - 126) in ASCII.
+* Else, print the char as usual.
 *
+* @arg: Str to print
 *
-*
-*
-*
-*
+* Return: The length of the output.
 */
 int print_S(va_list arg)
 {
@@ -21,7 +22,7 @@ int print_S(va_list arg)
 	{
 		if (*(str + i) < 32 || *(str + i) >= 127)
 		{
-			_putchar('\\'), _putchar('x');
+			_putchar('\\'), _putchar('x'), count += 2;
 			count += print_2hexaX(*(str + i));
 		}
 		else
@@ -31,12 +32,12 @@ int print_S(va_list arg)
 }
 
 /**
+* print_2hexaX - Print the ASCII char into a 2 char long
+* hexa.
 *
+* @c: Char to convert and print in hexa.
 *
-*
-*
-*
-*
+* Return: Length of the output.
 */
 int print_2hexaX(char c)
 {
