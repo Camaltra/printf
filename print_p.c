@@ -10,8 +10,8 @@
 */
 int print_p(va_list arg)
 {
-	unsigned long int number = va_arg(arg, unsigned long int);
-	unsigned long int tmp;
+	unsigned long number = va_arg(arg, unsigned long);
+	unsigned long tmp;
 	int k, j, i = 2, count = 2;
 	char addr[16];
 	char *str;
