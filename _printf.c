@@ -72,6 +72,7 @@ int (*get_print_func(const char *format))(va_list)
 		{"x", choice_hexax},
 		{"X", choice_hexaX},
 		{"%", print_percent},
+		{"R", rot13_convert},
 		{NULL, NULL}
 	};
 
