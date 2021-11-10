@@ -27,6 +27,8 @@ int print_char(va_list arg);
 
 int print_str(va_list arg);
 
+int reversed_string(va_list arg);
+
 int _printf(const char *format, ...);
 int (*get_print_func(const char *format))(va_list);
 
