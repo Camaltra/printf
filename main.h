@@ -21,6 +21,7 @@ typedef struct spe
 /* ----- Prototype of all functions ----- */
 
 int _putchar(char c);
+int _strlen(char *s);
 
 int print_char(va_list arg);
 
@@ -44,5 +45,7 @@ int print_int(va_list arg);
 int print_pourcent(va_list arg);
 
 int print_percent(va_list arg __attribute__((unused)));
+
+int rot13_convert(va_list arg);
 
 #endif
