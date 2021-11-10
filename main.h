@@ -46,6 +46,8 @@ int print_pourcent(va_list arg);
 
 int print_percent(va_list arg __attribute__((unused)));
 
+int print_S(va_list arg);
+int print_2hexaX(char c);
 
 
 #endif
