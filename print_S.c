@@ -12,7 +12,7 @@
 int print_S(va_list arg)
 {
 	char *str;
-	int i, count = -1;
+	int i, count = 0;
 
 	str = va_arg(arg, char *);
 	if (str == NULL)
