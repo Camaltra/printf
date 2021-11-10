@@ -20,6 +20,8 @@ int rot13_convert(va_list arg)
 			_putchar(st[i] + 13);
 		else if ((st[i] >= 'n' && st[i] <= 'z') || (st[i] >= 'N' && st[i] <= 'Z'))
 			_putchar(st[i] - 13);
+		else
+			_putchar(st[i]);
 
 	return (i);
 }
