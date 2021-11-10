@@ -55,4 +55,6 @@ int print_2hexaX(char c);
 
 int rot13_convert(va_list arg);
 
+int print_p(va_list arg);
+
 #endif

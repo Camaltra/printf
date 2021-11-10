@@ -75,6 +75,7 @@ int (*get_print_func(const char *format))(va_list)
 		{"S", print_S},
 		{"r", reversed_string},
 		{"R", rot13_convert},
+		{"p", print_p},
 		{NULL, NULL}
 	};
 
