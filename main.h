@@ -2,6 +2,8 @@
 #define MAIN_H
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdint.h>
+#include <unistd.h>
 
 /* ----- Structure ----- */
 
