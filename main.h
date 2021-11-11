@@ -49,11 +49,11 @@ int print_hexa(unsigned int number, int upper);
 int choice_hexaX(va_list arg);
 int choice_hexax(va_list arg);
 
-int print_hexa_long(unsigned int number, int upper);
+int print_hexa_long(unsigned long int number, int upper);
 int choice_hexaX_long(va_list arg);
 int choice_hexax_long(va_list arg);
 
-int print_hexa_short(unsigned int number, int upper);
+int print_hexa_short(unsigned short int number, int upper);
 int choice_hexaX_short(va_list arg);
 int choice_hexax_short(va_list arg);
 

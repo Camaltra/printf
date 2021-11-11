@@ -137,7 +137,7 @@ int print_hexa(unsigned int number, int upper)
 */
 int choice_hexax_long(va_list arg)
 {
-	return (print_hexa(va_arg(arg, unsigned long int), 0));
+	return (print_hexa_long(va_arg(arg, unsigned long int), 0));
 }
 
 /**
@@ -150,7 +150,7 @@ int choice_hexax_long(va_list arg)
 */
 int choice_hexaX_long(va_list arg)
 {
-	return (print_hexa(va_arg(arg, unsigned long int), 1));
+	return (print_hexa_long(va_arg(arg, unsigned long int), 1));
 }
 
 /**

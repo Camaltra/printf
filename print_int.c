@@ -40,7 +40,7 @@ int print_int(va_list arg)
 int print_short(va_list arg)
 {
 	short int size = 1, number, i, length = 0;
-	short int n = va_arg(arg, short int);
+	short int n = va_arg(arg, int);
 
 	while (n / size > 9 || n / size < -9)
 		size *= 10;

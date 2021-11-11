@@ -109,12 +109,12 @@ int (*get_l_func(const char *format))(va_list)
 	int j;
 
 	specifers p[] = {
-		{"d", print_int},
-		{"i", print_int},
+		{"d", print_long},
+		{"i", print_long},
 		{"u", print_lu_number},
 		{"o", print_loctal},
-		{"x", choice_hexax},
-		{"X", choice_hexaX},
+		{"x", choice_hexax_long},
+		{"X", choice_hexaX_long},
 		{NULL, NULL},
 	};
 
@@ -139,12 +139,12 @@ int (*get_h_func(const char *format))(va_list)
 	int j;
 
 	specifers p[] = {
-		{"d", print_int},
-		{"i", print_int},
+		{"d", print_short},
+		{"i", print_short},
 		{"u", print_hu_number},
 		{"o", print_hoctal},
-		{"x", choice_hexax},
-		{"X", choice_hexaX},
+		{"x", choice_hexax_short},
+		{"X", choice_hexaX_short},
 		{NULL, NULL},
 	};
 
