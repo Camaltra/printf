@@ -31,12 +31,17 @@ int _printf(const char *format, ...)
 			if (print_func != NULL)
 			{
 				sum += print_func(arg);
-				i++;
+				if (*(format + i + 1) == 'l' || *(format + i + 1) == 'h')
+					i += 2;
+				else
+					i++;
 			}
 			else
 			{
 				_putchar(*(format + i));
 				sum++;
+				if (*(format + i + 1) == 'l' || *(format + i + 1) == 'h')
+					i++;
 			}
 		} else
 		{
@@ -77,6 +82,72 @@ int (*get_print_func(const char *format))(va_list)
 		{"R", rot13_convert},
 		{"p", print_p},
 		{NULL, NULL}
+	};
+
+	if (*format == 'l')
+		return (get_l_func((format + 1)));
+
+	if (*format == 'h')
+		return (get_h_func((format + 1)));
+
+	for (j = 0; p[j].conversion != NULL; j++)
+		if (p[j].conversion != NULL && *p[j].conversion == *format)
+			return (p[j].f);
+
+	return (0);
+}
+
+/**
+ * get_l_func - Function that select the right
+ * function we need for the specifiers
+ *
+ * @format: The specifier we test for select function
+ *
+ * Return: Function in a array p
+ * or 0 if no function is selected
+ */
+int (*get_l_func(const char *format))(va_list)
+{
+	int j;
+
+	specifers p[] = {
+		{"d", print_long},
+		{"i", print_long},
+		{"u", print_lu_number},
+		{"o", print_loctal},
+		{"x", choice_hexax_long},
+		{"X", choice_hexaX_long},
+		{NULL, NULL},
+	};
+
+	for (j = 0; p[j].conversion != NULL; j++)
+		if (p[j].conversion != NULL && *p[j].conversion == *format)
+			return (p[j].f);
+
+	return (0);
+}
+
+/**
+ * get_h_func - Function that select the right
+ * function we need for the specifiers
+ *
+ * @format: The specifier we test for select function
+ *
+ * Return: Function in a array p
+ * or 0 if no function is selected
+ */
+int (*get_h_func(const char *format))(va_list)
+{
+	int j;
+
+	specifers p[] = {
+		{"d", print_short},
+		{"i", print_short},
+		{"u", print_hu_number},
+		{"o", print_hoctal},
+		{"x", choice_hexax_short},
+		{"X", choice_hexaX_short},
+		{NULL, NULL},
 	};
 
 	for (j = 0; p[j].conversion != NULL; j++)

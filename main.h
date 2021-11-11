@@ -33,6 +33,8 @@ int reversed_string(va_list arg);
 
 int _printf(const char *format, ...);
 int (*get_print_func(const char *format))(va_list);
+int (*get_l_func(const char *format))(va_list);
+int (*get_h_func(const char *format))(va_list);
 
 int _pow_recursion(int x, int y);
 
@@ -42,11 +44,22 @@ char *convert_octal(unsigned int number);
 
 int print_u_number(va_list arg);
 int print_octal(va_list arg);
+
 int print_hexa(unsigned int number, int upper);
 int choice_hexaX(va_list arg);
 int choice_hexax(va_list arg);
 
+int print_hexa_long(unsigned long int number, int upper);
+int choice_hexaX_long(va_list arg);
+int choice_hexax_long(va_list arg);
+
+int print_hexa_short(unsigned short int number, int upper);
+int choice_hexaX_short(va_list arg);
+int choice_hexax_short(va_list arg);
+
 int print_int(va_list arg);
+int print_short(va_list arg);
+int print_long(va_list arg);
 
 int print_pourcent(va_list arg);
 
@@ -58,5 +71,13 @@ int print_2hexaX(char c);
 int rot13_convert(va_list arg);
 
 int print_p(va_list arg);
+
+char *convert_loctal(unsigned long number);
+int print_loctal(va_list arg);
+int print_lu_number(va_list arg);
+
+int print_hu_number(va_list arg);
+int print_hoctal(va_list arg);
+char *convert_hoctal(unsigned short number);
 
 #endif

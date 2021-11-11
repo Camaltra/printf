@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * print_u_number - Prints an unsigned integer
+ * print_hu_number - Prints an unsigned integer
  *
- * @arg: unsigned int variable we print
+ * @arg: unsigned short variable we print
  *
  * Return: The length that function have print
  */
-int print_u_number(va_list arg)
+int print_hu_number(va_list arg)
 {
-	int size = 1, result, i, length = 0;
-	unsigned int un_number = va_arg(arg, unsigned int);
+	unsigned short size = 1, result, i, length = 0;
+	unsigned short un_number = va_arg(arg, int);
 
 	while (un_number / size > 9)
 		size *= 10;
@@ -26,7 +26,7 @@ int print_u_number(va_list arg)
 }
 
 /**
- * print_octal - Convert a decimal to
+ * print_hoctal - Convert a decimal to
  * octal and prints it
  *
  * @arg: The variadic variable with the int we
@@ -34,16 +34,16 @@ int print_u_number(va_list arg)
  *
  * Return: i is length of the print
  */
-int print_octal(va_list arg)
+int print_hoctal(va_list arg)
 {
 	int i = 0;
-	unsigned int toconvert = va_arg(arg, unsigned int);
+	unsigned short toconvert = va_arg(arg, int);
 	char *result;
 
 	if (toconvert == 0)
 		return (_putchar('0'));
 
-	result = convert_octal(toconvert);
+	result = convert_hoctal(toconvert);
 
 	if (result == NULL)
 		return (0);
@@ -59,47 +59,46 @@ int print_octal(va_list arg)
 	return (i);
 }
 
-
 /**
-* choice_hexax - Print the unsigned int into an hexa number
+* choice_hexax_short - Print the unsigned short int into an hexa number
 * in lowercase.
 *
 * @arg: The unsigned int to print
 *
 * Return: The length of the hexa number
 */
-int choice_hexax(va_list arg)
+int choice_hexax_short(va_list arg)
 {
-	return (print_hexa(va_arg(arg, unsigned int), 0));
+	return (print_hexa_short(va_arg(arg, unsigned int), 0));
 }
 
 /**
-* choice_hexaX - Print the unsigned int into an hexa number
+* choice_hexaX_short - Print the unsigned short int into an hexa number
 * in uppercase.
 *
 * @arg: The unsigned int to print
 *
 * Return: The length of the hexa number
 */
-int choice_hexaX(va_list arg)
+int choice_hexaX_short(va_list arg)
 {
-	return (print_hexa(va_arg(arg, unsigned int), 1));
+	return (print_hexa_short(va_arg(arg, unsigned int), 1));
 }
 
 /**
-* print_hexa - Print the hexa number
+* print_hexa_short - Print the short hexa number
 *
 * @number: The unsigned int to print
 * @upper: Choice is this will be an upper or lower hexa
 *
 * Return: The length of the hexa number
 */
-int print_hexa(unsigned int number, int upper)
+int print_hexa_short(unsigned short int number, int upper)
 {
 	int i = 0, j, count = 0;
-	unsigned int diff;
-	unsigned int tmp;
-	char hexa[9];
+	unsigned short int diff;
+	unsigned short int tmp;
+	char hexa[4];
 
 	if (upper)
 		diff = 'A' - ':';

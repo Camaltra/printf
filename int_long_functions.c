@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * print_u_number - Prints an unsigned integer
+ * print_lu_number - Prints an unsigned integer
  *
- * @arg: unsigned int variable we print
+ * @arg: unsigned long variable we print
  *
  * Return: The length that function have print
  */
-int print_u_number(va_list arg)
+int print_lu_number(va_list arg)
 {
-	int size = 1, result, i, length = 0;
-	unsigned int un_number = va_arg(arg, unsigned int);
+	unsigned long size = 1, result, i, length = 0;
+	unsigned long un_number = va_arg(arg, unsigned long);
 
 	while (un_number / size > 9)
 		size *= 10;
@@ -26,7 +26,7 @@ int print_u_number(va_list arg)
 }
 
 /**
- * print_octal - Convert a decimal to
+ * print_loctal - Convert a decimal to
  * octal and prints it
  *
  * @arg: The variadic variable with the int we
@@ -34,16 +34,16 @@ int print_u_number(va_list arg)
  *
  * Return: i is length of the print
  */
-int print_octal(va_list arg)
+int print_loctal(va_list arg)
 {
 	int i = 0;
-	unsigned int toconvert = va_arg(arg, unsigned int);
+	unsigned long toconvert = va_arg(arg, unsigned long);
 	char *result;
 
 	if (toconvert == 0)
 		return (_putchar('0'));
 
-	result = convert_octal(toconvert);
+	result = convert_loctal(toconvert);
 
 	if (result == NULL)
 		return (0);
@@ -59,47 +59,46 @@ int print_octal(va_list arg)
 	return (i);
 }
 
-
 /**
-* choice_hexax - Print the unsigned int into an hexa number
+* choice_hexax_long - Print the unsigned long int into an hexa number
 * in lowercase.
 *
 * @arg: The unsigned int to print
 *
 * Return: The length of the hexa number
 */
-int choice_hexax(va_list arg)
+int choice_hexax_long(va_list arg)
 {
-	return (print_hexa(va_arg(arg, unsigned int), 0));
+	return (print_hexa_long(va_arg(arg, unsigned long int), 0));
 }
 
 /**
-* choice_hexaX - Print the unsigned int into an hexa number
+* choice_hexaX_long - Print the unsigned long int into an hexa number
 * in uppercase.
 *
 * @arg: The unsigned int to print
 *
 * Return: The length of the hexa number
 */
-int choice_hexaX(va_list arg)
+int choice_hexaX_long(va_list arg)
 {
-	return (print_hexa(va_arg(arg, unsigned int), 1));
+	return (print_hexa_long(va_arg(arg, unsigned long int), 1));
 }
 
 /**
-* print_hexa - Print the hexa number
+* print_hexa_long - Print the long hexa number
 *
 * @number: The unsigned int to print
 * @upper: Choice is this will be an upper or lower hexa
 *
 * Return: The length of the hexa number
 */
-int print_hexa(unsigned int number, int upper)
+int print_hexa_long(unsigned long int number, int upper)
 {
 	int i = 0, j, count = 0;
-	unsigned int diff;
-	unsigned int tmp;
-	char hexa[9];
+	unsigned long int diff;
+	unsigned long int tmp;
+	char hexa[17];
 
 	if (upper)
 		diff = 'A' - ':';
