@@ -31,7 +31,10 @@ int print_p(va_list arg)
 	for (i = 0; i < sizeof(buffer); i++)
 	{
 		if (i == 2)
-			i += 4;
+		{
+			for (i = 2; *(buffer + i) == 0; i++)
+				;
+		}
 		count += _putchar(*(buffer + i));
 	}
 	return (count);
