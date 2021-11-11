@@ -40,6 +40,8 @@ int _printf(const char *format, ...)
 			{
 				_putchar(*(format + i));
 				sum++;
+				if (*(format + i + 1) == 'l' || *(format + i + 1) == 'h')
+					i++;
 			}
 		} else
 		{
