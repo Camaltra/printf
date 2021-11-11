@@ -10,34 +10,29 @@
 */
 int print_p(va_list arg)
 {
-	unsigned long number = va_arg(arg, unsigned long);
-	unsigned long tmp;
-	int k, j, i = 2, count = 2;
-	char addr[14];
-	char *str;
+	void *p = va_arg(arg, void *);
+	uintptr_t x = (uintptr_t)p;
+	char buffer[2 + sizeof(x) * 2];
+	long unsigned int i, count = 0;
+	char *str = "(nil)";
 
-	str = "(nil)";
-
-	if (number == 0)
+	if (p == 0)
 	{
-		for (k = 0; k < 5; k++)
-			_putchar(*(str + k));
-		return (5);
+		for (i  = 0; i < 5; i++)
+			count += _putchar(*(str + i));
+		return (count);
 	}
-	_putchar('0');
-	_putchar('x');
-	while (number != 0)
+	buffer[0] = '0';
+	buffer[1] = 'x';
+	for (i = 0; i < sizeof(x) * 2; i++) {
+		buffer[i + 2] = "0123456789abcdef"
+		[(x >> ((sizeof(x) * 2 - 1 - i) * 4)) & 0xf];
+	}
+	for (i = 0; i < sizeof(buffer); i++)
 	{
-		tmp = number % 16;
-		if (tmp >= 10)
-			addr[i] = tmp + 39 + '0';
-		else
-			addr[i] = tmp + '0';
-		number /= 16;
-		i++;
-		count++;
+		if (i == 2)
+			i += 4;
+		count += _putchar(*(buffer + i));
 	}
-	for (j = i - 1; j >= 0; j--)
-		_putchar(addr[j]);
 	return (count);
 }
