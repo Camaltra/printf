@@ -33,6 +33,8 @@ int reversed_string(va_list arg);
 
 int _printf(const char *format, ...);
 int (*get_print_func(const char *format))(va_list);
+int (*get_l_func(const char *format))(va_list);
+int (*get_h_func(const char *format))(va_list);
 
 int _pow_recursion(int x, int y);
 
@@ -58,5 +60,13 @@ int print_2hexaX(char c);
 int rot13_convert(va_list arg);
 
 int print_p(va_list arg);
+
+char *convert_loctal(unsigned long number);
+int print_loctal(va_list arg);
+int print_lu_number(va_list arg);
+
+int print_hu_number(va_list arg);
+int print_hoctal(va_list arg);
+char *convert_hoctal(unsigned short number);
 
 #endif
