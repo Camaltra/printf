@@ -15,13 +15,45 @@ The function _printf() is used to have a output of a format to stdout.
 
 .SS		Conversion specifiers
 .TP
+.PP
 		c	Convert a int argument into an unsigned char, and the resulting character is written.
 .TP
+.PP
 		s 	The pointer char * is browse in a loop into the end by NULL character and it's print with the putchar function.
 .TP
+.PP
 		%	No argument is printed, just "%"
 .TP
+.PP
 		d, i	The argument int is print to decimal notation.
+.TP
+.PP
+		R	Convert a string into Rot13 and print the string.
+.TP
+.PP
+		r	Print a string in reverse.
+.TP
+.PP
+		%	Print a simple % and continue to print.
+.TP
+.PP
+		b	Convert a string into binary and print it.
+.TP
+.PP
+		u, o, x, X
+.TP
+.PP
+			With an unsigned int argument, these specifiers print an unsigned int with u. Convert an 
+			unsigned into octal and print it. x and X conver an unsigned into hexadicemal lowercase or uppercase.
+.TP
+.PP
+		S	Print a string, but non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \\x
+.TP
+.PP
+		p	Print the adress of a pointer
+.TP
+.PP
+		l, h	Associated with d, i, u, o, x, X used these functions with long and short format.
 
 .SH EXAMPLES
 .TP
@@ -35,22 +67,24 @@ The function _printf() is used to have a output of a format to stdout.
 .TP
 .PP
 	#include "main.h"
+	char c_var = 'T';
 	_printf("Hypopierre is %c", c_var);
 .TP
 	To print a string in a variable:
 .TP
 .PP
 	#include "main.h"
+	char *str = "Holberton"
 	_printf("%s", str);
 .TP
 	To print a decimal int with a pourcent:
 .TP
 .PP
 	#include "main.h"
-	_printf("Pourcent of Holbies working in VR: %d%%\n", integer);
+	_printf("Pourcent of Holbies working in VR: %d%%", integer);
 
 .SH AUTHOR
 .TP
 .PP
 	Franck LEGER, Github: @Falendrac, Email: leger_franck@hotmail.fr
-	Mickael BOILLAUD, Github: @Camaltra, Email: 
+	Mickael BOILLAUD, Github: @Camaltra, Email: mickael.boillaud@gmail.com
