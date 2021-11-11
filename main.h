@@ -42,11 +42,22 @@ char *convert_octal(unsigned int number);
 
 int print_u_number(va_list arg);
 int print_octal(va_list arg);
+
 int print_hexa(unsigned int number, int upper);
 int choice_hexaX(va_list arg);
 int choice_hexax(va_list arg);
 
+int print_hexa_long(unsigned int number, int upper);
+int choice_hexaX_long(va_list arg);
+int choice_hexax_long(va_list arg);
+
+int print_hexa_short(unsigned int number, int upper);
+int choice_hexaX_short(va_list arg);
+int choice_hexax_short(va_list arg);
+
 int print_int(va_list arg);
+int print_short(va_list arg);
+int print_long(va_list arg);
 
 int print_pourcent(va_list arg);
 
