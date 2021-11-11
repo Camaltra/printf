@@ -32,7 +32,7 @@ int print_p(va_list arg)
 	{
 		if (i == 2)
 		{
-			for (i = 2; *(buffer + i) == 0; i++)
+			for (i = 2; *(buffer + i) == '0'; i++)
 				;
 		}
 		count += _putchar(*(buffer + i));
